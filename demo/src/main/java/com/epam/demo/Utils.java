@@ -1,9 +1,12 @@
 package com.epam.demo;
 
+import com.epam.utils.StringUtils;
+
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Utils {
     public static boolean isAllPositiveNumbers(List<String> args) {
-       //magic happens here
+        return args.stream().filter(Predicate.not(StringUtils::isPositiveNumber)).findFirst().isEmpty();
     }
 }
