@@ -7,6 +7,10 @@ import java.util.function.Predicate;
 
 public class Utils {
     public static boolean isAllPositiveNumbers(List<String> args) {
-        return args.stream().filter(Predicate.not(StringUtils::isPositiveNumber)).findFirst().isEmpty();
+        if (args == null) return false;
+        if (args.isEmpty()) return false;
+        for (String str : args)
+            if (!StringUtils.isPositiveNumber(str)) return false;
+        return true;
     }
 }
